@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JS30</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  </head>
+  <body>
+    <header>JS30</header>
+    <section>
+      <div class="project" style="background: url('./image/JS30-6.png') center/cover;">
+        <a class="demo" href="https://github.com/dobi8422/JS30/JS30-6">&nbsp;demo&nbsp;</a>
+      </div>
+      <div class="project" style="background: url('./image/JS30-8.png') center/cover;">
+        <a class="demo" href="https://github.com/dobi8422/JS30/JS30-8">&nbsp;demo&nbsp;</a>
+      </div>
+      <div class="project" style="background: url('./image/JS30-13.png') center/cover;">
+        <a class="demo" href="https://github.com/dobi8422/JS30/JS30-13">&nbsp;demo&nbsp;</a>
+      </div>
+      <div class="project" style="background: url('./image/JS30-16.png') center/cover;">
+        <a class="demo" href="https://github.com/dobi8422/JS30/JS30-16">&nbsp;demo&nbsp;</a>
+      </div>
+      <div class="project" style="background: url('./image/JS30-27.png') center/cover;">
+        <a class="demo" href="https://github.com/dobi8422/JS30/JS30-27">&nbsp;demo&nbsp;</a>
+      </div>
+      <div class="project" style="background: url('./image/JS30-30.png') center/cover;">
+        <a class="demo" href="https://github.com/dobi8422/JS30/JS30-30">&nbsp;demo&nbsp;</a>
+      </div>
+    </section>
+    <footer>
+      <div class="wrap">
+        <span>2021.9&emsp;</span>
+        <li"><a href="https://github.com/dobi8422"><i class="fab fa-github"></i></a>&ensp;dobi8422</li>
+      </div>
+      <p>參考資料：<a href="https://javascript30.com/">javascript30.com</a></p>
+    </footer>
+  </body>
+</html>
+
+<style>
+  *{
+    color: honeydew;
+  }
+  html{
+    height: 100%;
+    font-family:Arial, Helvetica, sans-serif;
+  }
+  body{
+    display: flex;
+    flex-flow: column;
+    overflow-x: hidden;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-image: url(https://www.designbolts.com/wp-content/uploads/2014/10/Black-iphone-6-background.jpg);
+    margin: 0;
+    height: 100%;
+  }
+  header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(83, 83, 83, 0.7);
+    box-shadow: 2px 2px 14px rgba(83, 83, 83, 0.9);
+    font-size: 2rem;
+    text-align: center;
+    padding: 10px;
+    z-index: 10;
+  }
+  section{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-self: center;
+    width: calc(120vw - 100vw / 2);
+    margin: 4em;
+  }
+  .project{
+    position: relative;
+    margin: 1em;
+    border: honeydew 3px solid;
+    width: 20em;
+    height: 20em;
+  }
+  .demo{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: rgba(210, 105, 30, 0.3);
+    border-radius: 25px 0 0 0;
+    font-size: 2em;
+  }
+  .demo:hover{
+    background: rgba(210, 105, 30, 1);
+  }
+  a{
+    text-decoration: none;
+  }
+  footer{
+    text-align: center;
+    background: rgba(83, 83, 83, 0.6);
+    padding-top: 15px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+  }
+  .wrap{
+    display: flex;
+    justify-content: center;
+    flex-flow: row;
+  }
+  li{
+    list-style: none;
+  }
+</style>

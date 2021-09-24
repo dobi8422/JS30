@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JS30-13 Mouse Move Shadow</title>
+  </head>
+  <body>
+    <div class="neon">
+      <h1 contenteditable="true">😁哈哈👽</h1>
+    </div>
+  </body>
+</html>
+
+<script>
+const neon = document.querySelector('.neon')
+const text = neon.querySelector('h1')
+const walk = 100
+
+neon.addEventListener('mousemove', neon_light)
+function neon_light (e) {
+	const { offsetWidth : width, offsetHeight : height } = neon
+  let {offsetX : x, offsetY : y } = e
+  if (this !== e.target) {
+    x = x + e.target.offsetLeft
+    y = y + e.target.offsetTop
+  }
+  // console.log(x, y)
+  const xWalk = Math.round(( x / width *walk) - (walk / 2))
+  const yWalk = Math.round(( y / height *walk) - (walk / 2))
+
+  text.style.textShadow = `
+    ${xWalk}px ${yWalk}px 0 rgba(255,0,0,0.7),
+    ${-xWalk}px ${-yWalk}px 0 rgba(0,255,0,0.7),
+    ${yWalk}px ${-xWalk}px 0 rgba(255,255,0,0.7),
+    ${-yWalk}px ${xWalk}px 0 rgba(0,0,255,0.7)
+  `
+}
+
+</script>
+
+<style>
+  .neon{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    height: 95vh;
+  }
+  h1{
+    display: flex;
+    justify-content: center;
+    font-size: 4em;
+  }
+</style>

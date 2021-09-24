@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JS30-8 Canvas</title>
+  </head>
+
+  <body>
+    <canvas id="draw"></canvas>
+  </body>
+</html>
+
+<script>
+const canvas = document.querySelector('#draw')
+
+// canvas相關
+const ctx = canvas.getContext('2d') // 定義為2d繪圖
+canvas.width = window.innerWidth // 畫布的範圍
+canvas.height = window.innerHeight // 畫布的範圍
+ctx.strokeStyle = '#BADA55' // 定義繪畫的顏色
+ctx.lineJoin = 'round' // 定義兩線相交時的拐角練習
+ctx.lineCap = 'round' // 定義結束端點樣式
+ctx.lineWidth = 100 // 定義寬度
+
+let last_point = [] // 定義畫筆最終位置，若不更新位置，會造成起點和終點呈現直線
+let hue = 0
+let direction = true;
+
+// 定義事件
+let isDrawing = false
+canvas.addEventListener('mousedown', start_draw) // 開始繪圖
+canvas.addEventListener('mousemove', draw) // 繪製圖片中
+canvas.addEventListener('mouseup', ()=>isDrawing = false) // 完成繪圖
+canvas.addEventListener('mouseout', ()=>isDrawing = false) // 取消繪圖
+
+function start_draw(e){
+  isDrawing = true
+  last_point = [e.offsetX, e.offsetY]
+}
+
+function draw(e){
+  if (!isDrawing) return // 設定停止
+  // console.log(e) // 使用者工具看座標相關訊息
+  ctx.beginPath() // 當作繪畫啟動
+  ctx.moveTo(last_point[0], last_point[1]) // 當作起始位置
+  ctx.lineTo(e.offsetX, e.offsetY) // 當作終點位置
+  ctx.stroke() // 代表繪製以定義的路徑
+  last_point = [e.offsetX, e.offsetY]
+
+  // 功能
+  ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`
+  // 重新定義顏色，色彩表示的方式hsl(hue, Saturation, Lightness)
+  // hue代表顏色的度數0-360，0是紅色 ，120是綠色，240是藍色
+  // Saturation代表灰階程度，0%為灰黑，100%為彩色，一般設置為100%
+  // Lightness為亮度，0%代表黑，100%代表白，一般設置為50%
+  hue++;
+  if(hue>=360){
+    hue = 0;
+  }
+  if(ctx.lineWidth == 100 || ctx.lineWidth == 1){
+    direction = !direction
+  }
+  if(direction){
+    ctx.lineWidth++
+  }else{
+    ctx.lineWidth--
+  }
+  // 未來延伸功能...參考小畫家,Krita
+}
+</script>
+
+<style>
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  overflow: hidden;
+}
+</style>
